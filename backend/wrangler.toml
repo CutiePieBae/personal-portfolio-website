@@ -1,0 +1,14 @@
+name = "portfolio-api"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio-db"
+database_id = "local" # This will be replaced with actual ID after creating the database
+
+# For local development
+[vars]
+ENVIRONMENT = "development"
+

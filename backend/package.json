@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-api",
+  "version": "1.0.0",
+  "description": "Portfolio API backend on Cloudflare Workers",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create portfolio-db",
+    "db:init": "wrangler d1 execute portfolio-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute portfolio-db --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251228.0",
+    "hono": "^4.11.3",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.54.0"
+  }
+}
