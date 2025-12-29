@@ -26,7 +26,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-[#0a0a0b]/90 backdrop-blur-md z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-background/90 backdrop-blur-md z-50 flex items-center justify-center p-4"
         onClick={onClose}
       >
         <motion.div
@@ -34,7 +34,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
           transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
-          className="bg-[#141416] border border-[#262629] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/50"
+          className="bg-card border border-border rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-black/50"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Image */}
@@ -45,18 +45,18 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="w-full h-full object-cover"
             />
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#141416] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
             
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-[#0a0a0b]/60 backdrop-blur-sm border border-[#262629] hover:bg-[#0a0a0b]/80 hover:border-[#f59e0b]/50 transition-all duration-300 group"
+              className="absolute top-4 right-4 p-2 rounded-full bg-background/60 backdrop-blur-sm border border-border hover:bg-background/80 hover:border-accent/50 transition-all duration-300 group"
             >
-              <X className="w-5 h-5 text-[#a1a1a6] group-hover:text-[#fafafa]" />
+              <X className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
             </button>
             
             {/* Accent glow at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#f59e0b] to-transparent opacity-60" />
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-60" />
           </div>
 
           {/* Content */}
@@ -65,7 +65,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-[#fafafa] mb-4"
+              className="text-foreground mb-4"
             >
               {project.title}
             </motion.h2>
@@ -83,7 +83,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 + index * 0.03 }}
-                  className="px-3 py-1 text-sm rounded-full bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20"
+                  className="px-3 py-1 text-sm rounded-full bg-accent/10 text-accent border border-accent/20"
                 >
                   {tech}
                 </motion.span>
@@ -97,11 +97,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
               >
-                <h3 className="text-[#fafafa] mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
+                <h3 className="text-foreground mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
                   Overview
                 </h3>
-                <p className="text-[#a1a1a6] leading-relaxed">{project.fullDescription}</p>
+                <p className="text-muted-foreground leading-relaxed">{project.fullDescription}</p>
               </motion.div>
 
               {/* Challenges */}
@@ -111,11 +111,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <h3 className="text-[#fafafa] mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
+                  <h3 className="text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent" />
                     Challenges
                   </h3>
-                  <p className="text-[#a1a1a6] leading-relaxed">{project.challenges}</p>
+                  <p className="text-muted-foreground leading-relaxed">{project.challenges}</p>
                 </motion.div>
               )}
 
@@ -126,11 +126,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 }}
                 >
-                  <h3 className="text-[#fafafa] mb-2 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#f59e0b]" />
+                  <h3 className="text-foreground mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent" />
                     Outcome
                   </h3>
-                  <p className="text-[#a1a1a6] leading-relaxed">{project.outcome}</p>
+                  <p className="text-muted-foreground leading-relaxed">{project.outcome}</p>
                 </motion.div>
               )}
 
@@ -146,7 +146,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#fafafa] text-[#0a0a0b] rounded-lg font-medium hover:bg-[#f59e0b] transition-colors duration-300"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-lg font-medium hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
                   >
                     <Github className="w-5 h-5" />
                     View Source
@@ -157,7 +157,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#262629] text-[#fafafa] rounded-lg font-medium hover:border-[#f59e0b] hover:text-[#f59e0b] transition-colors duration-300"
+                    className="inline-flex items-center gap-2 px-6 py-3 border-2 border-border text-foreground rounded-lg font-medium hover:border-accent hover:text-accent transition-colors duration-300"
                   >
                     <ExternalLink className="w-5 h-5" />
                     Live Demo

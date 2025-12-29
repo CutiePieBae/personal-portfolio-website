@@ -4,15 +4,16 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { ProjectCard } from './components/ProjectCard';
 import { ProjectModal } from './components/ProjectModal';
 import { Navigation } from './components/Navigation';
+import { ThemeToggle } from './components/ThemeToggle';
 
 // Mock data - you can easily update this
 const personalInfo = {
-  name: "Alex Johnson",
-  title: "Full Stack Developer & Designer",
-  bio: "Passionate developer with 5+ years of experience building modern web applications. I specialize in creating elegant solutions to complex problems, with a focus on user experience and clean code.",
-  email: "alex.johnson@email.com",
-  github: "https://github.com/alexjohnson",
-  linkedin: "https://linkedin.com/in/alexjohnson",
+  name: "Chu Chun Yue",
+  title: "Full Stack Developer",
+  bio: "Passionate developer with 1+ years of experience building modern web applications. I specialize in creating elegant solutions to complex problems, with a focus on user experience and clean code.",
+  email: "chuchunyue@yahoo.com",
+  github: "https://github.com/CutiePieBae",
+  linkedin: "https://www.linkedin.com/in/chu-c-97737210b",
   skills: {
     frontend: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
     backend: ["Node.js", "Python", "PostgreSQL", "Redis"],
@@ -29,7 +30,7 @@ const projects = [
     fullDescription: "Built a comprehensive e-commerce platform from the ground up, featuring real-time inventory tracking, secure payment processing via Stripe, and an intuitive admin dashboard. The platform handles thousands of concurrent users and processes hundreds of transactions daily.",
     technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Redis", "AWS"],
     image: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMGNvZGluZ3xlbnwxfHx8fDE3NjY3NTMyMDd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    githubUrl: "https://github.com/alexjohnson/ecommerce-platform",
+    githubUrl: "https://github.com/CutiePieBae/ecommerce-platform",
     liveUrl: "https://demo-ecommerce.example.com",
     challenges: "The main challenge was optimizing database queries for the inventory system to handle real-time updates across multiple warehouses while maintaining data consistency. Implemented caching strategies with Redis and optimized SQL queries to reduce response time by 60%.",
     outcome: "Successfully launched the platform serving 10,000+ active users. The system processes an average of 500 orders per day with 99.9% uptime."
@@ -41,7 +42,7 @@ const projects = [
     fullDescription: "Developed a modern task management application that enables teams to collaborate effectively with real-time updates, drag-and-drop task organization, and comprehensive reporting features. The app integrates with popular tools like Slack and Google Calendar.",
     technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Motion"],
     image: "https://images.unsplash.com/photo-1666723043169-22e29545675c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b3Jrc3BhY2UlMjBkZXNrfGVufDF8fHx8MTc2NjcyNTE4OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    githubUrl: "https://github.com/alexjohnson/task-manager",
+    githubUrl: "https://github.com/CutiePieBae/task-manager",
     liveUrl: "https://taskmanager.example.com",
     challenges: "Implementing real-time synchronization across multiple clients while handling offline scenarios was complex. Used Firebase Realtime Database with custom conflict resolution logic to ensure data consistency.",
     outcome: "The app is used by 50+ teams and has received a 4.8/5 rating on Product Hunt. Users report a 40% increase in team productivity."
@@ -53,7 +54,7 @@ const projects = [
     fullDescription: "Created a comprehensive fitness tracking application available on iOS and Android. Features include workout logging, nutrition tracking, progress visualization with interactive charts, and social features to connect with friends and share achievements.",
     technologies: ["React Native", "GraphQL", "MongoDB", "Express", "Chart.js"],
     image: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY2NzMwNDA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    githubUrl: "https://github.com/alexjohnson/fitness-tracker",
+    githubUrl: "https://github.com/CutiePieBae/fitness-tracker",
     challenges: "Optimizing the app for battery efficiency while maintaining accurate tracking was crucial. Implemented smart background task scheduling and efficient data syncing to minimize battery drain.",
     outcome: "Launched with 5,000+ downloads in the first month. Users track an average of 15 workouts per month with a 70% retention rate after 30 days."
   },
@@ -64,7 +65,7 @@ const projects = [
     fullDescription: "Built a complete design system and component library used across multiple products in an organization. Includes 100+ reusable components, comprehensive documentation, accessibility features, and automated visual regression testing.",
     technologies: ["React", "Storybook", "TypeScript", "Figma", "CSS-in-JS"],
     image: "https://images.unsplash.com/photo-1615220367990-1940567341f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbiUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjY3NjM2NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    githubUrl: "https://github.com/alexjohnson/design-system",
+    githubUrl: "https://github.com/CutiePieBae/design-system",
     liveUrl: "https://design-system.example.com",
     challenges: "Ensuring consistency across different frameworks and maintaining backward compatibility while evolving the system. Created a comprehensive migration guide and automated tools to help teams upgrade.",
     outcome: "Adopted by 8 product teams, reducing development time by 30% and ensuring consistent UX across all products. The system has 100% WCAG 2.1 AA compliance."
@@ -108,13 +109,13 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: React.Ele
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative p-4 rounded-full bg-[#141416] border border-[#262629] hover:border-[#f59e0b]/50 transition-all duration-300"
+      className="group relative p-4 rounded-full bg-card border border-border shadow-[var(--card-shadow)] hover:border-accent/50 hover:shadow-[var(--card-shadow-hover)] transition-all duration-300"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label={label}
     >
-      <Icon className="w-5 h-5 text-[#a1a1a6] group-hover:text-[#f59e0b] transition-colors duration-300" />
-      <div className="absolute inset-0 rounded-full bg-[#f59e0b]/0 group-hover:bg-[#f59e0b]/10 transition-colors duration-300" />
+      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+      <div className="absolute inset-0 rounded-full bg-accent/0 group-hover:bg-accent/10 transition-colors duration-300" />
     </motion.a>
   );
 }
@@ -126,33 +127,36 @@ function App() {
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0b]">
+    <div className="min-h-screen bg-background">
+      {/* Theme Toggle */}
+      <ThemeToggle />
+      
       {/* Navigation */}
       <Navigation />
       
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-[#f59e0b] origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-accent origin-left z-50"
         style={{ scaleX: scrollYProgress }}
       />
 
       {/* Hero Section */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Radial gradient for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,var(--accent-glow),transparent_70%)]" />
+        
         {/* Grid pattern background */}
-        <div className="absolute inset-0 grid-pattern opacity-100" />
+        <div className="absolute inset-0 grid-pattern" />
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0b]/50 to-[#0a0a0b]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
         
-        {/* Animated accent orbs - now visible */}
+        {/* Animated accent orbs - enhanced for better visibility */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%)',
-          }}
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,var(--hero-orb-1)_0%,transparent_60%)]"
           animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
+            x: [0, 40, 0],
+            y: [0, -30, 0],
           }}
           transition={{
             duration: 8,
@@ -161,16 +165,26 @@ function App() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)',
-          }}
+          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,var(--hero-orb-2)_0%,transparent_60%)]"
           animate={{
-            x: [0, -25, 0],
-            y: [0, 25, 0],
+            x: [0, -35, 0],
+            y: [0, 35, 0],
           }}
           transition={{
             duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        {/* Third orb for extra depth */}
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,var(--accent-glow-strong)_0%,transparent_70%)]"
+          animate={{
+            x: [0, 20, 0],
+            y: [0, -40, 0],
+          }}
+          transition={{
+            duration: 12,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
@@ -181,28 +195,30 @@ function App() {
           className="container mx-auto px-6 py-20 relative z-10"
         >
           <div className="max-w-4xl mx-auto text-center">
-            {/* Avatar with glassmorphic style */}
+            {/* Profile photo with glassmorphic style */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 100, damping: 15 }}
-              className="relative w-28 h-28 mx-auto mb-10"
+              className="relative w-32 h-32 mx-auto mb-10"
             >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#f59e0b] to-[#f59e0b]/50 rotate-6" />
-              <div className="absolute inset-0 rounded-2xl bg-[#141416] border border-[#262629] backdrop-blur-xl flex items-center justify-center">
-                <span className="text-3xl font-bold text-[#f59e0b]">
-                  {personalInfo.name.split(' ').map(n => n[0]).join('')}
-                </span>
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent to-accent/50 rotate-6 shadow-lg" />
+              <div className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-border shadow-[var(--card-shadow)]">
+                <img 
+                  src="/profile.png" 
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Glow effect */}
-              <div className="absolute -inset-4 rounded-3xl bg-[#f59e0b]/20 blur-2xl -z-10" />
+              <div className="absolute -inset-4 rounded-3xl bg-accent/25 blur-2xl -z-10" />
             </motion.div>
             
             {/* Name with character animation */}
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-5xl md:text-7xl font-bold text-[#fafafa] mb-4 tracking-tight"
+              className="text-5xl md:text-7xl font-bold text-foreground mb-4 tracking-tight"
             >
               <AnimatedText text={personalInfo.name} delay={0.5} />
             </motion.h1>
@@ -212,7 +228,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
-              className="text-xl md:text-2xl text-[#a1a1a6] mb-6"
+              className="text-xl md:text-2xl text-muted-foreground mb-6"
             >
               {personalInfo.title}
             </motion.p>
@@ -222,7 +238,7 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4, duration: 0.6 }}
-              className="text-lg text-[#717182] max-w-2xl mx-auto mb-10 leading-relaxed"
+              className="text-lg text-muted-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed"
             >
               {personalInfo.bio}
             </motion.p>
@@ -240,11 +256,11 @@ function App() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.8 + categoryIndex * 0.1 }}
-                  className="p-4 rounded-xl bg-[#141416]/50 border border-[#262629] backdrop-blur-sm"
+                  className="p-4 rounded-xl bg-card/80 border border-border backdrop-blur-sm shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-shadow duration-300"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <category.icon className="w-4 h-4 text-[#f59e0b]" />
-                    <span className="text-sm font-medium text-[#fafafa]">{category.label}</span>
+                    <category.icon className="w-4 h-4 text-accent" />
+                    <span className="text-sm font-medium text-foreground">{category.label}</span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {category.skills.map((skill, skillIndex) => (
@@ -253,7 +269,7 @@ function App() {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 2 + categoryIndex * 0.1 + skillIndex * 0.05 }}
-                        className="px-2 py-1 text-xs rounded-md bg-[#f59e0b]/10 text-[#f59e0b]/80 border border-[#f59e0b]/20"
+                        className="px-2 py-1 text-xs rounded-md bg-accent/10 text-accent/80 border border-accent/20"
                       >
                         {skill}
                       </motion.span>
@@ -284,19 +300,19 @@ function App() {
             >
               <a
                 href="#projects"
-                className="text-sm text-[#a1a1a6] hover:text-[#f59e0b] transition-colors"
+                className="text-sm text-muted-foreground hover:text-accent transition-colors"
               >
                 View My Work
               </a>
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                className="w-5 h-8 rounded-full border-2 border-[#262629] flex items-start justify-center p-1"
+                className="w-5 h-8 rounded-full border-2 border-border flex items-start justify-center p-1"
               >
                 <motion.div
                   animate={{ y: [0, 12, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                  className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]"
+                  className="w-1.5 h-1.5 rounded-full bg-accent"
                 />
               </motion.div>
             </motion.div>
@@ -318,12 +334,12 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="inline-block px-4 py-1.5 text-sm font-medium text-[#f59e0b] bg-[#f59e0b]/10 border border-[#f59e0b]/20 rounded-full mb-4"
+              className="inline-block px-4 py-1.5 text-sm font-medium text-accent bg-accent/10 border border-accent/20 rounded-full mb-4"
             >
               Portfolio
             </motion.span>
-            <h2 className="text-[#fafafa] mb-4">Featured Projects</h2>
-            <p className="text-lg text-[#a1a1a6] max-w-2xl mx-auto">
+            <h2 className="text-foreground mb-4">Featured Projects</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Here are some of my recent projects. Click on any project to learn more about the challenges, solutions, and outcomes.
             </p>
           </motion.div>
@@ -350,9 +366,9 @@ function App() {
       </section>
 
       {/* Footer / Contact Section */}
-      <footer id="contact" className="relative py-20 px-6 border-t border-[#262629]">
+      <footer id="contact" className="relative py-20 px-6 border-t border-border">
         {/* Subtle gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141416]/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card/50 to-transparent pointer-events-none" />
         
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <motion.div
@@ -361,17 +377,17 @@ function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 text-sm font-medium text-[#f59e0b] bg-[#f59e0b]/10 border border-[#f59e0b]/20 rounded-full mb-4">
+            <span className="inline-block px-4 py-1.5 text-sm font-medium text-accent bg-accent/10 border border-accent/20 rounded-full mb-4">
               Contact
             </span>
-            <h2 className="text-[#fafafa] mb-4">Let's Work Together</h2>
-            <p className="text-[#a1a1a6] mb-8 max-w-lg mx-auto">
+            <h2 className="text-foreground mb-4">Let's Work Together</h2>
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
               I'm always interested in hearing about new projects and opportunities. Feel free to reach out if you'd like to connect.
             </p>
             
             <motion.a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#f59e0b] text-[#0a0a0b] rounded-xl font-semibold hover:bg-[#fbbf24] transition-all duration-300 shadow-lg shadow-[#f59e0b]/20 hover:shadow-[#f59e0b]/30"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-xl font-semibold hover:opacity-90 transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-accent/30"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -392,7 +408,7 @@ function App() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-16 pt-8 border-t border-[#262629] text-[#717182] text-sm"
+            className="mt-16 pt-8 border-t border-border text-muted-foreground/70 text-sm"
           >
             <p>© {new Date().getFullYear()} {personalInfo.name}. Crafted with care.</p>
           </motion.div>

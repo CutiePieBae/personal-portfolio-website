@@ -20,16 +20,16 @@ export function ProjectCard({ project, onClick, featured = false }: ProjectCardP
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
       onClick={onClick}
       className={`group relative overflow-hidden rounded-xl cursor-pointer
-        bg-[#141416] border border-[#262629]
-        hover:border-[#f59e0b]/50 hover:shadow-[0_0_30px_rgba(245,158,11,0.1)]
+        bg-card border border-border shadow-[var(--card-shadow)]
+        hover:border-accent/50 hover:shadow-[var(--card-shadow-hover)]
         transition-all duration-300
         ${featured ? 'md:col-span-2 md:row-span-2' : ''}`}
     >
       {/* Accent corner glow */}
-      <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-[#f59e0b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 left-0 w-24 h-24 bg-gradient-to-br from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Left accent border */}
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#f59e0b] via-[#f59e0b]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       
       {/* Image container */}
       <div className={`relative overflow-hidden ${featured ? 'h-64 md:h-80' : 'h-48'}`}>
@@ -39,20 +39,20 @@ export function ProjectCard({ project, onClick, featured = false }: ProjectCardP
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141416] via-[#141416]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
         
         {/* View project indicator */}
-        <div className="absolute top-4 right-4 p-2 rounded-full bg-[#0a0a0b]/60 backdrop-blur-sm border border-[#262629] opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
-          <ExternalLink className="w-4 h-4 text-[#f59e0b]" />
+        <div className="absolute top-4 right-4 p-2 rounded-full bg-background/60 backdrop-blur-sm border border-border opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+          <ExternalLink className="w-4 h-4 text-accent" />
         </div>
       </div>
       
       {/* Content */}
       <div className="relative p-6 -mt-8">
-        <h3 className="text-[#fafafa] mb-2 group-hover:text-[#f59e0b] transition-colors duration-300">
+        <h3 className="text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-[#a1a1a6] text-sm mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
           {project.description}
         </p>
         
@@ -62,14 +62,14 @@ export function ProjectCard({ project, onClick, featured = false }: ProjectCardP
             <span
               key={tech}
               className="px-3 py-1 text-xs font-medium rounded-full
-                bg-[#f59e0b]/10 text-[#f59e0b] border border-[#f59e0b]/20
-                transition-colors duration-300 group-hover:bg-[#f59e0b]/20"
+                bg-accent/10 text-accent border border-accent/20
+                transition-colors duration-300 group-hover:bg-accent/20"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > (featured ? 5 : 3) && (
-            <span className="px-3 py-1 text-xs text-[#a1a1a6]">
+            <span className="px-3 py-1 text-xs text-muted-foreground">
               +{project.technologies.length - (featured ? 5 : 3)}
             </span>
           )}

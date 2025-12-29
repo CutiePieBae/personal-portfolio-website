@@ -57,7 +57,7 @@ export function Navigation() {
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           className="fixed top-6 left-1/2 -translate-x-1/2 z-50"
         >
-          <div className="flex items-center gap-1 px-2 py-2 bg-[#141416]/80 backdrop-blur-xl border border-[#262629] rounded-full shadow-lg shadow-black/20">
+          <div className="flex items-center gap-1 px-2 py-2 bg-card/80 backdrop-blur-xl border border-border rounded-full shadow-[var(--card-shadow)]">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -67,15 +67,15 @@ export function Navigation() {
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute inset-0 bg-[#f59e0b] rounded-full"
+                    className="absolute inset-0 bg-accent rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
                 <span
                   className={`relative z-10 transition-colors ${
                     activeSection === item.id
-                      ? 'text-[#0a0a0b]'
-                      : 'text-[#a1a1a6] hover:text-[#fafafa]'
+                      ? 'text-accent-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {item.label}
